@@ -31,12 +31,13 @@
 	<meta name="article:author" content="{{ $.Site.Params.twitter }}">
 	<meta name="article:tag" content="{{ range .Params.tags }}{{.}} {{end}}">
 	<link rel="stylesheet" type="text/css" href="/css/style{{ $.Site.Params.style }}.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<script src="/js/caption.js"></script>
 </head>
 <body>
 <header >
-	<a href="/" style="float: left;color:#777;"><strong>{{ $.Site.Params.home }}</strong> </a>
-	{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#777;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
+	<a href="/" style="float: left;color:#777;"><strong>/{{ $.Site.Params.home }}</strong> </a>
+	{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#777;"><strong>{{ .Params.menu }}</strong></a>{{ end }}{{ end }}
 
 {{ if .Draft }}
 DRAFT

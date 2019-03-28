@@ -52,8 +52,6 @@ window.onload = ready;
 	{{ .Content }}
 </div>
 
-
-
 {{ if (eq .Type "post") }}
 	<p><small><em>Written {{ .Date.Format "January 2, 2006"}}. </em>
 		{{ if $.Site.Params.twitter  }} 
@@ -68,8 +66,20 @@ window.onload = ready;
 {{ end }}
 
 
-
-
+{{ if (eq .Type "about") }}
+<div class="about-icons">
+    <p>
+    <a href="mailto:skarakayali@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+    <a href="https://github.com/karakays"><i class="fab fa-github fa-2x"></i></a>
+    <a href="https://twitter.com/headt0ne"><i class="fab fa-twitter fa-2x"></i></a>
+    <a href="https://keybase.io/karakays"><i class="fab fa-keybase fa-2x"></i></a>
+    <a href="https://www.linkedin.com/in/skarakayali"><i class="fab fa-linkedin fa-2x"></i></a>
+    <a href="https://soundcloud/selcuk"><i class="fab fa-soundcloud fa-2x"></i></a>
+    <a href="spotify:user:headtone"><i class="fab fa-spotify fa-2x"></i></a>
+    <!--RSS icon here-->
+    </p>
+</div>
+{{ end }}
 
 {{ partial "footer.html" . }}
 {{ template "_internal/google_analytics.html" . }}
